@@ -1,10 +1,10 @@
-import { CustomKanban } from "./components/CustomKanban";
 import "./App.css";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <>
-      <CustomKanban />
+      <NavBar />
     </>
   );
 }
