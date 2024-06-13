@@ -6,6 +6,7 @@ type CardType = {
   column: ColumnType;
   priority: string;
   points?: number;
+  assignId: number;
 };
 
 export const DEFAULT_CARDS_FINANCE: CardType[] = [
@@ -16,6 +17,7 @@ export const DEFAULT_CARDS_FINANCE: CardType[] = [
     column: "backlog",
     priority: "high",
     points: 13,
+    assignId: 1,
   },
   {
     title: "Review and update budget forecasts",
@@ -23,6 +25,7 @@ export const DEFAULT_CARDS_FINANCE: CardType[] = [
     column: "backlog",
     priority: "medium",
     points: 8,
+    assignId: 2,
   },
   {
     title: "Evaluate new accounting software",
@@ -30,6 +33,7 @@ export const DEFAULT_CARDS_FINANCE: CardType[] = [
     column: "backlog",
     priority: "low",
     points: 3,
+    assignId: 3,
   },
   {
     title: "Document internal audit processes",
@@ -37,6 +41,7 @@ export const DEFAULT_CARDS_FINANCE: CardType[] = [
     column: "backlog",
     priority: "medium",
     points: 5,
+    assignId: 4,
   },
   // TODO
   {
@@ -45,6 +50,7 @@ export const DEFAULT_CARDS_FINANCE: CardType[] = [
     column: "todo",
     priority: "low",
     points: 1,
+    assignId: 5,
   },
   {
     title: "Prepare tax filing for current fiscal year",
@@ -52,6 +58,7 @@ export const DEFAULT_CARDS_FINANCE: CardType[] = [
     column: "todo",
     priority: "medium",
     points: 8,
+    assignId: 1,
   },
   {
     title: "Analyze cost-saving opportunities",
@@ -59,6 +66,7 @@ export const DEFAULT_CARDS_FINANCE: CardType[] = [
     column: "todo",
     priority: "medium",
     points: 5,
+    assignId: 2,
   },
   // DOING
   {
@@ -67,6 +75,7 @@ export const DEFAULT_CARDS_FINANCE: CardType[] = [
     column: "doing",
     priority: "medium",
     points: 3,
+    assignId: 3,
   },
   {
     title: "Review and approve expense reports",
@@ -74,6 +83,7 @@ export const DEFAULT_CARDS_FINANCE: CardType[] = [
     column: "doing",
     priority: "low",
     points: 2,
+    assignId: 4,
   },
   // DONE
   {
@@ -82,6 +92,7 @@ export const DEFAULT_CARDS_FINANCE: CardType[] = [
     column: "done",
     priority: "high",
     points: 8,
+    assignId: 5,
   },
 ];
 
@@ -93,6 +104,7 @@ export const DEFAULT_CARDS_PRODUCT: CardType[] = [
     column: "backlog",
     priority: "high",
     points: 13,
+    assignId: 1,
   },
   {
     title: "SOX compliance checklist",
@@ -100,6 +112,7 @@ export const DEFAULT_CARDS_PRODUCT: CardType[] = [
     column: "backlog",
     priority: "medium",
     points: 8,
+    assignId: 2,
   },
   {
     title: "[SPIKE] Migrate to Azure",
@@ -107,6 +120,7 @@ export const DEFAULT_CARDS_PRODUCT: CardType[] = [
     column: "backlog",
     priority: "low",
     points: 3,
+    assignId: 3,
   },
   {
     title: "Document Notifications service",
@@ -114,6 +128,7 @@ export const DEFAULT_CARDS_PRODUCT: CardType[] = [
     column: "backlog",
     priority: "medium",
     points: 5,
+    assignId: 4,
   },
   // TODO
   {
@@ -122,6 +137,7 @@ export const DEFAULT_CARDS_PRODUCT: CardType[] = [
     column: "todo",
     priority: "low",
     points: 1,
+    assignId: 5,
   },
   {
     title: "Postmortem for outage",
@@ -129,6 +145,7 @@ export const DEFAULT_CARDS_PRODUCT: CardType[] = [
     column: "todo",
     priority: "medium",
     points: 8,
+    assignId: 1,
   },
   {
     title: "Sync with product on Q3 roadmap",
@@ -136,8 +153,8 @@ export const DEFAULT_CARDS_PRODUCT: CardType[] = [
     column: "todo",
     priority: "medium",
     points: 5,
+    assignId: 2,
   },
-
   // DOING
   {
     title: "Refactor context providers to use Zustand",
@@ -145,6 +162,7 @@ export const DEFAULT_CARDS_PRODUCT: CardType[] = [
     column: "doing",
     priority: "medium",
     points: 3,
+    assignId: 3,
   },
   {
     title: "Add logging to daily CRON",
@@ -152,6 +170,7 @@ export const DEFAULT_CARDS_PRODUCT: CardType[] = [
     column: "doing",
     priority: "low",
     points: 2,
+    assignId: 4,
   },
   // DONE
   {
@@ -160,6 +179,7 @@ export const DEFAULT_CARDS_PRODUCT: CardType[] = [
     column: "done",
     priority: "high",
     points: 8,
+    assignId: 5,
   },
 ];
 
@@ -171,6 +191,7 @@ export const DEFAULT_CARDS_SUPPORT: CardType[] = [
     column: "backlog",
     priority: "medium",
     points: 8,
+    assignId: 1,
   },
   {
     title: "Investigate recurring login issues",
@@ -178,6 +199,7 @@ export const DEFAULT_CARDS_SUPPORT: CardType[] = [
     column: "backlog",
     priority: "high",
     points: 13,
+    assignId: 2,
   },
   {
     title: "Evaluate new ticketing system",
@@ -185,6 +207,7 @@ export const DEFAULT_CARDS_SUPPORT: CardType[] = [
     column: "backlog",
     priority: "low",
     points: 3,
+    assignId: 3,
   },
   {
     title: "Document support processes",
@@ -192,6 +215,7 @@ export const DEFAULT_CARDS_SUPPORT: CardType[] = [
     column: "backlog",
     priority: "medium",
     points: 5,
+    assignId: 4,
   },
   // TODO
   {
@@ -200,6 +224,7 @@ export const DEFAULT_CARDS_SUPPORT: CardType[] = [
     column: "todo",
     priority: "low",
     points: 1,
+    assignId: 5,
   },
   {
     title: "Follow up on unresolved tickets",
@@ -207,6 +232,7 @@ export const DEFAULT_CARDS_SUPPORT: CardType[] = [
     column: "todo",
     priority: "medium",
     points: 8,
+    assignId: 1,
   },
   {
     title: "Sync with product team on known issues",
@@ -214,6 +240,7 @@ export const DEFAULT_CARDS_SUPPORT: CardType[] = [
     column: "todo",
     priority: "medium",
     points: 5,
+    assignId: 2,
   },
   // DOING
   {
@@ -222,6 +249,7 @@ export const DEFAULT_CARDS_SUPPORT: CardType[] = [
     column: "doing",
     priority: "high",
     points: 13,
+    assignId: 3,
   },
   {
     title: "Provide training for new support agents",
@@ -229,6 +257,7 @@ export const DEFAULT_CARDS_SUPPORT: CardType[] = [
     column: "doing",
     priority: "medium",
     points: 5,
+    assignId: 4,
   },
   // DONE
   {
@@ -237,6 +266,7 @@ export const DEFAULT_CARDS_SUPPORT: CardType[] = [
     column: "done",
     priority: "high",
     points: 8,
+    assignId: 5,
   },
 ];
 
@@ -248,6 +278,7 @@ export const DEFAULT_CARDS_SALES: CardType[] = [
     column: "backlog",
     priority: "medium",
     points: 8,
+    assignId: 1,
   },
   {
     title: "Create sales pitch for upcoming product launch",
@@ -255,6 +286,7 @@ export const DEFAULT_CARDS_SALES: CardType[] = [
     column: "backlog",
     priority: "high",
     points: 13,
+    assignId: 2,
   },
   {
     title: "Update CRM with latest customer data",
@@ -262,6 +294,7 @@ export const DEFAULT_CARDS_SALES: CardType[] = [
     column: "backlog",
     priority: "low",
     points: 3,
+    assignId: 3,
   },
   {
     title: "Develop customer retention strategy",
@@ -269,6 +302,7 @@ export const DEFAULT_CARDS_SALES: CardType[] = [
     column: "backlog",
     priority: "medium",
     points: 5,
+    assignId: 4,
   },
   // TODO
   {
@@ -277,6 +311,7 @@ export const DEFAULT_CARDS_SALES: CardType[] = [
     column: "todo",
     priority: "high",
     points: 8,
+    assignId: 5,
   },
   {
     title: "Prepare Q3 sales forecast",
@@ -284,6 +319,7 @@ export const DEFAULT_CARDS_SALES: CardType[] = [
     column: "todo",
     priority: "medium",
     points: 5,
+    assignId: 1,
   },
   {
     title: "Schedule demo sessions for new clients",
@@ -291,6 +327,7 @@ export const DEFAULT_CARDS_SALES: CardType[] = [
     column: "todo",
     priority: "low",
     points: 3,
+    assignId: 2,
   },
   // DOING
   {
@@ -299,6 +336,7 @@ export const DEFAULT_CARDS_SALES: CardType[] = [
     column: "doing",
     priority: "high",
     points: 13,
+    assignId: 3,
   },
   {
     title: "Conduct product training for sales team",
@@ -306,6 +344,7 @@ export const DEFAULT_CARDS_SALES: CardType[] = [
     column: "doing",
     priority: "medium",
     points: 5,
+    assignId: 4,
   },
   // DONE
   {
@@ -314,5 +353,6 @@ export const DEFAULT_CARDS_SALES: CardType[] = [
     column: "done",
     priority: "high",
     points: 8,
+    assignId: 5,
   },
 ];

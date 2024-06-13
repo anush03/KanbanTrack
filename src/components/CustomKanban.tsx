@@ -9,8 +9,10 @@ import React, {
 
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { motion } from "framer-motion";
+import LetteredAvatar from "react-lettered-avatar";
 import { FaFire } from "react-icons/fa";
 import { FcProcess, FcPlanner, FcList, FcOk } from "react-icons/fc";
+import "./Card.css";
 const lowPriorityIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +84,7 @@ const Board = ({ cardsTeam }: { cardsTeam: CardType[] }) => {
   }, [cardsTeam]);
 
   return (
-    <div className="flex h-full w-full gap-3  p-12 justify-center">
+    <div className="flex h-full w-full gap-3  mt-96 pt-36 sm:mt-2 sm:pt-2 ml-64 sm:ml-2 sm:p-12 justify-center flex-col sm:flex-row">
       <Column
         title="Backlog"
         column="backlog"
@@ -139,6 +141,7 @@ const Column = ({
 }: ColumnProps) => {
   const [active, setActive] = useState(false);
   const [priority, setPriority] = useState("high");
+  const [assignId, setAssign] = useState(1);
 
   const handleDragStart = (e: DragEvent, card: CardType) => {
     e.dataTransfer.setData("cardId", card.id);
@@ -274,6 +277,8 @@ const Column = ({
           setCards={setCards}
           priority={priority}
           setPriority={setPriority}
+          assignId={assignId}
+          setAssign={setAssign}
         />
       </div>
     </div>
@@ -284,7 +289,14 @@ type CardProps = CardType & {
   handleDragStart: Function;
 };
 
-const Card = ({ title, id, column, handleDragStart, priority }: CardProps) => {
+const Card = ({
+  title,
+  id,
+  column,
+  handleDragStart,
+  priority,
+  assignId,
+}: CardProps) => {
   return (
     <>
       <DropIndicator beforeId={id} column={column} />
@@ -293,13 +305,59 @@ const Card = ({ title, id, column, handleDragStart, priority }: CardProps) => {
         layoutId={id}
         draggable="true"
         onDragStart={(e) => handleDragStart(e, { title, id, column })}
-        className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
+        className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing "
       >
         <p className="text-sm text-neutral-100">{title}</p>
-        <div className="flex gap-2">
-          {priority === "high" && highPriorityIcon}
-          {priority === "medium" && mediumPriorityIcon}
-          {priority === "low" && lowPriorityIcon}
+        <div className="flex flex-row justify-between">
+          <div className="flex flex-row justify-between mt-2">
+            <div className="flex gap-2">
+              {priority === "high" && highPriorityIcon}
+              {priority === "medium" && mediumPriorityIcon}
+              {priority === "low" && lowPriorityIcon}
+            </div>
+          </div>
+          <div className="flex mt-2">
+            {assignId == 1 && (
+              <LetteredAvatar
+                name="Anush Shinde"
+                size={30}
+                color="#fff"
+                backgroundColor="#008080"
+              />
+            )}
+            {assignId == 2 && (
+              <LetteredAvatar
+                name="Harry Potter"
+                size={30}
+                color="#fff"
+                backgroundColor="#FF5733"
+              />
+            )}
+            {assignId == 3 && (
+              <LetteredAvatar
+                name="Lord Voldmart"
+                size={30}
+                color="#fff"
+                backgroundColor="#581845"
+              />
+            )}
+            {assignId == 4 && (
+              <LetteredAvatar
+                name="Ron Weasley"
+                size={30}
+                color="#fff"
+                backgroundColor="#6495ED"
+              />
+            )}
+            {assignId == 5 && (
+              <LetteredAvatar
+                name="H G "
+                size={30}
+                color="#fff"
+                backgroundColor="#FFBF00"
+              />
+            )}
+          </div>
         </div>
       </motion.div>
     </>
@@ -366,9 +424,18 @@ type AddCardProps = {
   priority: string;
   setPriority: React.Dispatch<React.SetStateAction<string>>;
   setCards: Dispatch<SetStateAction<CardType[]>>;
+  assignId: number;
+  setAssign: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const AddCard = ({ column, setCards, priority, setPriority }: AddCardProps) => {
+const AddCard = ({
+  column,
+  setCards,
+  priority,
+  setPriority,
+  assignId,
+  setAssign,
+}: AddCardProps) => {
   const [text, setText] = useState("");
   const [adding, setAdding] = useState(false);
 
@@ -382,6 +449,7 @@ const AddCard = ({ column, setCards, priority, setPriority }: AddCardProps) => {
       title: text.trim(),
       id: Math.random().toString(),
       priority,
+      assignId,
     };
 
     setCards((pv) => [...pv, newCard]);
@@ -425,6 +493,46 @@ const AddCard = ({ column, setCards, priority, setPriority }: AddCardProps) => {
               Low
             </option>
           </select>
+
+          <label className="mt-2 text-sm text-neutral-50">Assign To</label>
+          <select
+            value={priority}
+            onChange={(e) => setAssign(parseInt(e.target.value, 10))}
+            className="w-full mt-2 rounded border border-violet-400 bg-violet-400/20 p-2 text-sm text-neutral-50 focus:outline-0"
+            style={{ color: "white" }}
+          >
+            <option
+              value={1}
+              style={{ color: "black", backgroundColor: "white" }}
+            >
+              Anush Shinde
+            </option>
+            <option
+              value={2}
+              style={{ color: "black", backgroundColor: "white" }}
+            >
+              Harry Potter
+            </option>
+            <option
+              value={3}
+              style={{ color: "black", backgroundColor: "white" }}
+            >
+              Lord Voldemort
+            </option>
+            <option
+              value={4}
+              style={{ color: "black", backgroundColor: "white" }}
+            >
+              Ron Weasley
+            </option>
+            <option
+              value={5}
+              style={{ color: "black", backgroundColor: "white" }}
+            >
+              Hermione Granger
+            </option>
+          </select>
+
           <div className="mt-1.5 flex items-center justify-end gap-1.5">
             <button
               onClick={() => setAdding(false)}
@@ -463,4 +571,5 @@ type CardType = {
   column: ColumnType;
   priority: string;
   points?: number;
+  assignId: number;
 };

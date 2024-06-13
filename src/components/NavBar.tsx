@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CustomKanban } from "./CustomKanban";
+import LetteredAvatar from "react-lettered-avatar";
 
 import {
   DEFAULT_CARDS_FINANCE,
@@ -69,7 +70,7 @@ const NavBar: React.FC = () => {
           scrolled ? "backdrop-blur-3xl" : ""
         }`}
       >
-        <div className="px-3 py-3 lg:px-5 lg:pl-3">
+        <div className="px-3 py-3 px-5 pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start rtl:justify-end">
               <div
@@ -98,10 +99,11 @@ const NavBar: React.FC = () => {
                   }}
                 >
                   <span className="sr-only">Open user menu</span>
-                  <img
-                    className="w-8 h-8 rounded-full"
-                    src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                    alt="user photo"
+                  <LetteredAvatar
+                    name="Anush Shinde"
+                    size={40}
+                    color="#fff"
+                    backgroundColor="#008080"
                   />
                 </div>
 
@@ -129,11 +131,7 @@ const NavBar: React.FC = () => {
       </nav>
 
       {sideBar && (
-        <aside
-          id="logo-sidebar"
-          className="fixed top-0 left-0 z-40 min-h-full overflow-scroll pt-20 transition-transform -translate-x-full border-r border-gray-800 sm:translate-x-0 bg-neutral-900 text-neutral-50"
-          aria-label="Sidebar"
-        >
+        <aside className="fixed top-0 left-0 z-40 min-h-full overflow-scroll pt-20 transition-transform -translate-x-full border-r border-gray-800 translate-x-0 bg-neutral-900 text-neutral-50">
           <a className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
             <FcDoughnutChart />
             <span className="ms-3">My projects</span>
