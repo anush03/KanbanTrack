@@ -1,12 +1,40 @@
-type ColumnType = "backlog" | "todo" | "doing" | "done";
+import React, { Dispatch, SetStateAction } from "react";
+export type ColumnType = "backlog" | "todo" | "doing" | "done";
 
-type CardType = {
+export type CardType = {
   title: string;
   id: string;
   column: ColumnType;
   priority: string;
   points?: number;
   assignId: number;
+};
+
+export type AddCardProps = {
+  column: ColumnType;
+  priority: string;
+  setPriority: React.Dispatch<React.SetStateAction<string>>;
+  setCards: Dispatch<SetStateAction<CardType[]>>;
+  assignId: number;
+  setAssign: React.Dispatch<React.SetStateAction<number>>;
+};
+
+export type ColumnProps = {
+  title: string;
+  headingColor: string;
+  cards: CardType[];
+  column: ColumnType;
+  setCards: Dispatch<SetStateAction<CardType[]>>;
+  icon: React.ComponentType;
+};
+
+export type CardProps = CardType & {
+  handleDragStart: Function;
+};
+
+export type DropIndicatorProps = {
+  beforeId: string | null;
+  column: string;
 };
 
 export const DEFAULT_CARDS_FINANCE: CardType[] = [
@@ -356,3 +384,59 @@ export const DEFAULT_CARDS_SALES: CardType[] = [
     assignId: 5,
   },
 ];
+
+export const lowPriorityIcon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6 text-blue-400"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M5 9l7 7 7-7"
+    />
+  </svg>
+);
+
+export const mediumPriorityIcon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6 text-yellow-500"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M5 10h14"
+    />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M5 14h14"
+    />
+  </svg>
+);
+export const highPriorityIcon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6 text-red-500"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M5 15l7-7 7 7"
+    />
+  </svg>
+);

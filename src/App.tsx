@@ -1,12 +1,7 @@
-import "./App.css";
-import NavBar from "./components/NavBar";
+import KanbanBoard from "./components/KanbanBoard";
 
 function App() {
-  return (
-    <>
-      <NavBar />
-    </>
-  );
+  return <KanbanBoard />;
 }
 
 export default App;

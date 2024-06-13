@@ -7,10 +7,10 @@ import {
   DEFAULT_CARDS_PRODUCT,
   DEFAULT_CARDS_SALES,
   DEFAULT_CARDS_SUPPORT,
+  CardType,
 } from "../contants/Constants";
 
 import { VscLayoutSidebarLeftOff } from "react-icons/vsc";
-
 import {
   FcDoughnutChart,
   FcMoneyTransfer,
@@ -20,17 +20,7 @@ import {
 } from "react-icons/fc";
 import { GrFormNext } from "react-icons/gr";
 
-type ColumnType = "backlog" | "todo" | "doing" | "done";
-
-type CardType = {
-  title: string;
-  id: string;
-  column: ColumnType;
-  priority: string;
-  points?: number;
-};
-
-const NavBar: React.FC = () => {
+const KanbanBoard: React.FC = () => {
   const [nameDrawer, setNameDrawer] = useState(false);
   const [sideBar, setSideBar] = useState(true);
   const [cards, setCards] = useState<CardType[]>(DEFAULT_CARDS_PRODUCT);
@@ -109,7 +99,7 @@ const NavBar: React.FC = () => {
 
                 {nameDrawer ? (
                   <div
-                    className="absolute right-0 mt-32 w-48 bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                    className="absolute right-0 mt-32 w-56 bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
                     id="dropdown-user"
                   >
                     <div className="px-4 py-3">
@@ -214,4 +204,4 @@ const NavBar: React.FC = () => {
   );
 };
 
-export default NavBar;
+export default KanbanBoard;
